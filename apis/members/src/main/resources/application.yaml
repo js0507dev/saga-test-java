@@ -1,14 +1,14 @@
 spring:
     application:
-        name: orders
+        name: members
     datasource:
         driver-class-name: org.mariadb.jdbc.Driver
-        url: ${DB_URL:jdbc:mariadb://localhost:3306/orders?serverTimezone=UTC&characterEncoding=UTF-8}
+        url: ${DB_URL:jdbc:mariadb://localhost:3306/members?serverTimezone=UTC&characterEncoding=UTF-8}
         username: ${DB_USER:tester}
         password: ${DB_PASS:tester1234}
     jpa:
         hibernate:
-          ddl-auto: none
+            ddl-auto: none
         properties:
             hibernate:
                 format_sql: true
@@ -22,18 +22,13 @@ spring:
                 definition: direct;broadcast
             stream:
                 bindings:
-                    direct-out-0:
+                    direct-in-0:
                         destination: p2p-topic
-                    broadcast-out-0:
+                    broadcast-in-0:
                         destination: pubsub-topic
-    rabbitmq:
-        host: ${RABBITMQ_HOST:localhost}
-        port: ${RABBITMQ_PORT:5672}
-        username: ${RABBITMQ_USER:guest}
-        password: ${RABBITMQ_PASS:guest}
 
 server:
-    port: 8081
+    port: 8083
 
 logging:
     level:
@@ -47,10 +42,3 @@ eureka:
             defaultZone: ${EUREKA_SERVER_URL:http://localhost:9999/eureka/}
         register-with-eureka: true
         fetch-registry: true
-
-feign:
-  client:
-      config:
-          default:
-              connectTimeout: 5000
-              readTimeout: 5000
