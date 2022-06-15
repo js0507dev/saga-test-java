@@ -24,6 +24,6 @@ public class OrderController {
     Order order = orderService.findOne(id);
     MemberDto memberDto = memberFeignClient.getMember(order.getOrdererUserId());
 
-    return OrderDtoMapper.INSTANCE.entitiesToOrderDto(order, memberDto);
+    return OrderDtoMapper.INSTANCE.fromEntity(order, memberDto);
   }
 }

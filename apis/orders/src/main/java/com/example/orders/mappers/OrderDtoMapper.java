@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface OrderDtoMapper {
-  final static OrderDtoMapper INSTANCE = Mappers.getMapper(OrderDtoMapper.class);
+  OrderDtoMapper INSTANCE = Mappers.getMapper(OrderDtoMapper.class);
 
   @Mapping(target = "id", source = "order.id")
   @Mapping(target = "ordererUserId", source = "order.ordererUserId")
@@ -17,5 +17,5 @@ public interface OrderDtoMapper {
   @Mapping(target = "ordererPhoneNumber", source = "order.ordererPhoneNumber")
   @Mapping(target = "ordererEmail", source = "memberDto.email")
   @Mapping(target = "status", source = "order.status")
-  OrderDto entitiesToOrderDto(Order order, MemberDto memberDto);
+  OrderDto fromEntity(Order order, MemberDto memberDto);
 }
