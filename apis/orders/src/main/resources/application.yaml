@@ -51,4 +51,7 @@ feign:
               connectTimeout: 5000
               readTimeout: 5000
 
-
+my:
+ sagaPattern:
+   useChoreography: true
+   useOchestration: false
