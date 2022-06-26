@@ -1,26 +1,25 @@
 package com.example.payments.entities;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity(name = "payments")
-public class Payment {
+public class Payment extends BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private Long orderId;
   private Long userId;
-  private String paymentMethod;
+  private Long amount;
+  private PaymentMethod paymentMethod;
   private String cardNumber;
-  private String status;
+  private PaymentStatus status;
 }
