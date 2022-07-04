@@ -5,7 +5,6 @@ import com.example.orders.saga.config.WorkflowStepStatus;
 import reactor.core.publisher.Mono;
 
 public class PaymentStep implements WorkflowStep {
-  private //
   public PaymentStep() {
     //
   }

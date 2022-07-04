@@ -19,7 +19,8 @@ repositories {
 }
 
 ext {
-    set('springCloudVersion', "2021.0.3")
+    springCloudVersion = "2021.0.3"
+    queryDslVersion = "5.0.0"
 }
 
 dependencies {

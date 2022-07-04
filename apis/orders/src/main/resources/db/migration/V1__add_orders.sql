@@ -4,5 +4,7 @@ CREATE TABLE orders (
     orderer_name VARCHAR(100) NOT NULL,
     orderer_phone_number VARCHAR(30) NOT NULL,
     status VARCHAR(10) NOT NULL,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
     PRIMARY KEY(id)
 );
